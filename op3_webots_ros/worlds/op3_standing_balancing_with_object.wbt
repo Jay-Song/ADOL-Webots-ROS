@@ -1,0 +1,67 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "../protos/RobotisOp3.proto"
+
+WorldInfo {
+  info [
+    "ROBOTIS OP3 robot."
+    "The ROBOTIS OP3 robot simulation model can be programmed using the ROBOTIS OP3 motions files."
+  ]
+  title "ROBOTIS OP3"
+  basicTimeStep 8
+}
+Viewpoint {
+  orientation -0.1382281079028442 0.1369617203391904 0.9808845382344086 1.5992967951500308
+  position 0.013203069997463068 -1.795257377159292 0.7776697092401015
+  follow "ROBOTIS OP3"
+}
+TexturedBackground {
+  skybox FALSE
+  skyColor [
+    0.5 0.5 0.5
+  ]
+}
+TexturedBackgroundLight {
+}
+Floor {
+  rotation 0 0 1 1.57079632679
+  size 100 100
+  appearance Appearance {
+    texture ImageTexture {
+      url [
+        "../images/grid.png"
+      ]
+    }
+  }
+}
+RobotisOp3 {
+  translation 0 0 0.282665
+  controller "<extern>"
+  supervisor TRUE
+  cameraWidth 320
+  cameraHeight 180
+  bodySlot [
+    InertialUnit {
+    }
+  ]
+  rightHandSlot [
+    Solid {
+      translation -0.02 -0.1 -0.09
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0 0.8 0
+            }
+          }
+          geometry Box {
+            size 0.1 0.1 0.16
+          }
+        }
+      ]
+    }
+  ]
+}
